@@ -46,6 +46,10 @@ function process_data(){
 	echo "Fix charset"
 	sed -i -e '0,/windows-1251/{s/windows-1251/utf-8/}' UO.xml.utf8
 	sed -i -e '0,/windows-1251/{s/windows-1251/utf-8/}' FOP.xml.utf8
+
+	echo "Cut bad charset"
+	sed -i -E  's/(\&#[0-9]{1,10};)//gm' 17-xml/UO.xml
+	sed -i -E  's/(\&#[0-9]{1,10};)//gm' 17-xml/FOP.xml
 	cd ..
 }
 
@@ -59,6 +63,9 @@ mkdir 17-xml
 mv $dd/*.utf8 17-xml/
 mv 17-xml/UO.xml.utf8 17-xml/UO.xml
 mv 17-xml/FOP.xml.utf8 17-xml/FOP.xml
+
+xml_split -s 1Gb /17-xml/UO.xml
+xml_split -s 1Gb /17-xml/FOP.xml
 
 #tar czf data.tgz 17-xml
 
