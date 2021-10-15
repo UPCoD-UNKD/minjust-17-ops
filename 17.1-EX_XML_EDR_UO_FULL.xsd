@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="DATA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="SUBJECT"/>
+      </xs:sequence>
+      <xs:attribute name="FORMAT_VERSION" use="required" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SUBJECT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RECORD"/>
+        <xs:element ref="NAME"/>
+        <xs:element ref="SHORT_NAME"/>
+        <xs:element ref="OPF"/>
+        <xs:element ref="EDRPOU"/>
+        <xs:element ref="ADDRESS"/>
+        <xs:element ref="STAN"/>
+        <xs:element ref="FOUNDING_DOCUMENT_NUM"/>
+        <xs:element ref="EXECUTIVE_POWER"/>
+        <xs:element ref="FOUNDERS"/>
+        <xs:element ref="BENEFICIARIES"/>
+        <xs:element ref="ACTIVITY_KINDS"/>
+        <xs:element ref="SUPERIOR_MANAGEMENT"/>
+        <xs:element ref="SIGNERS"/>
+        <xs:element ref="AUTHORIZED_CAPITAL"/>
+        <xs:element ref="STATUTE"/>
+        <xs:element ref="REGISTRATION"/>
+        <xs:element ref="MANAGING_PAPER"/>
+        <xs:element ref="BRANCHES"/>
+        <xs:element ref="TERMINATION_STARTED_INFO"/>
+        <xs:element ref="BANKRUPTCY_READJUSTMENT_INFO"/>
+        <xs:element ref="PREDECESSORS"/>
+        <xs:element ref="ASSIGNEES"/>
+        <xs:element ref="TERMINATED_INFO"/>
+        <xs:element ref="TERMINATION_CANCEL_INFO"/>
+        <xs:element ref="CONTACTS"/>
+        <xs:element ref="EXCHANGE_DATA"/>
+        <xs:element ref="VP_DATES"/>
+        <xs:element ref="CURRENT_AUTHORITY"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RECORD" type="xs:integer"/>
+  <xs:element name="SHORT_NAME" type="xs:string"/>
+  <xs:element name="OPF" type="xs:string"/>
+  <xs:element name="EDRPOU" type="xs:string"/>
+  <xs:element name="STAN" type="xs:string"/>
+  <xs:element name="FOUNDING_DOCUMENT_NUM" type="xs:string"/>
+  <xs:element name="EXECUTIVE_POWER">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="NAME"/>
+        <xs:element minOccurs="0" ref="CODE"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FOUNDERS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="FOUNDER"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FOUNDER" type="xs:string"/>
+  <xs:element name="BENEFICIARIES">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BENEFICIARY"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BENEFICIARY" type="xs:string"/>
+  <xs:element name="SUPERIOR_MANAGEMENT" type="xs:string"/>
+  <xs:element name="SIGNERS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="SIGNER"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AUTHORIZED_CAPITAL" type="xs:string"/>
+  <xs:element name="STATUTE" type="xs:string"/>
+  <xs:element name="REGISTRATION" type="xs:string"/>
+  <xs:element name="MANAGING_PAPER" type="xs:string"/>
+  <xs:element name="BRANCHES">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BRANCH"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BRANCH">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="ACTIVITY_KINDS"/>
+          <xs:element ref="ADDRESS"/>
+          <xs:element ref="CODE"/>
+          <xs:element ref="CONTACTS"/>
+          <xs:element ref="NAME"/>
+          <xs:element ref="SIGNER"/>
+          <xs:element ref="CREATE_DATE"/>
+        </xs:choice>
+        <xs:element ref="EXCHANGE_DATA"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CREATE_DATE" type="xs:NMTOKEN"/>
+  <xs:element name="TERMINATION_STARTED_INFO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="OP_DATE"/>
+          <xs:element ref="REASON"/>
+          <xs:element ref="SBJ_STATE"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="SIGNER_NAME"/>
+        <xs:element minOccurs="0" ref="CREDITOR_REQ_END_DATE"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SIGNER_NAME" type="xs:string"/>
+  <xs:element name="CREDITOR_REQ_END_DATE" type="xs:NMTOKEN"/>
+  <xs:element name="BANKRUPTCY_READJUSTMENT_INFO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="OP_DATE"/>
+          <xs:element ref="REASON"/>
+          <xs:element ref="SBJ_STATE"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="BANKRUPTCY_READJUSTMENT_HEAD_NAME"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BANKRUPTCY_READJUSTMENT_HEAD_NAME" type="xs:string"/>
+  <xs:element name="PREDECESSORS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PREDECESSOR"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PREDECESSOR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="NAME"/>
+        <xs:element ref="CODE"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ASSIGNEES">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ASSIGNEE"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ASSIGNEE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="NAME"/>
+        <xs:element ref="CODE"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TERMINATED_INFO" type="xs:string"/>
+  <xs:element name="TERMINATION_CANCEL_INFO" type="xs:string"/>
+  <xs:element name="VP_DATES" type="xs:string"/>
+  <xs:element name="CURRENT_AUTHORITY" type="xs:string"/>
+  <xs:element name="NAME" type="xs:string"/>
+  <xs:element name="ADDRESS" type="xs:string"/>
+  <xs:element name="CODE" type="xs:string"/>
+  <xs:element name="ACTIVITY_KINDS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ACTIVITY_KIND"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ACTIVITY_KIND">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CODE"/>
+        <xs:element ref="NAME"/>
+        <xs:element minOccurs="0" ref="PRIMARY"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PRIMARY" type="xs:NCName"/>
+  <xs:element name="SIGNER" type="xs:string"/>
+  <xs:element name="CONTACTS" type="xs:string"/>
+  <xs:element name="EXCHANGE_DATA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="EXCHANGE_ANSWER"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EXCHANGE_ANSWER">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="AUTHORITY_NAME"/>
+        <xs:element ref="AUTHORITY_CODE"/>
+        <xs:element minOccurs="0" ref="TAX_PAYER_TYPE"/>
+        <xs:element minOccurs="0" ref="START_DATE"/>
+        <xs:element minOccurs="0" ref="START_NUM"/>
+        <xs:element minOccurs="0" ref="END_DATE"/>
+        <xs:element minOccurs="0" ref="END_NUM"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AUTHORITY_NAME" type="xs:string"/>
+  <xs:element name="AUTHORITY_CODE" type="xs:string"/>
+  <xs:element name="TAX_PAYER_TYPE" type="xs:string"/>
+  <xs:element name="START_DATE" type="xs:NMTOKEN"/>
+  <xs:element name="START_NUM" type="xs:string"/>
+  <xs:element name="END_DATE" type="xs:NMTOKEN"/>
+  <xs:element name="END_NUM" type="xs:string"/>
+  <xs:element name="OP_DATE" type="xs:NMTOKEN"/>
+  <xs:element name="REASON" type="xs:string"/>
+  <xs:element name="SBJ_STATE" type="xs:string"/>
+</xs:schema>
