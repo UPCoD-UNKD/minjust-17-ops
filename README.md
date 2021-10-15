@@ -10,4 +10,8 @@ xmllint --noout --stream --schema 17.1-EX_XML_EDR_UO_FULL.xsd 17.1-EX_XML_EDR_UO
 
 This is clean and verify XML
 
+### TODO
+Create base CSV from XML - https://pragmaticintegrator.wordpress.com/2012/10/28/transforming-xml-to-csv-via-xslt/
+
+
 
