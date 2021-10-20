@@ -8,7 +8,7 @@ function get_data(){
 
 	echo -e "Downloading..."
 	fname='17-UFOP_FULL.zip'
-	url=$( curl -silence https://nais.gov.ua/m/ediniy-derjavniy-reestr-yuridichnih-osib-fizichnih-osib-pidpriemtsiv-ta-gromadskih-formuvan | grep 17-UFOP_FULL_11.10.2021.zip | cut -d '=' -f2 | cut -d ">" -f1 | tr -d '"' )
+	url=$( curl -silence https://nais.gov.ua/m/ediniy-derjavniy-reestr-yuridichnih-osib-fizichnih-osib-pidpriemtsiv-ta-gromadskih-formuvan | grep 17-UFOP_FULL | cut -d '=' -f2 | cut -d ">" -f1 | tr -d '"' )
 	wget -c -O $fname $url --user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.19 Safari/537.36"
 	echo -e "Downloaded. Size: " `du -hs $fname`
 	echo -e "Extracting..."
